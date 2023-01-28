@@ -34,5 +34,4 @@ class User
     {
         return $this->lastName;
     }
-
 }
