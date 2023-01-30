@@ -10,8 +10,25 @@ $faker = Faker\Factory::create('ru_RU');
 
 var_dump($argv);
 
-$name = new User(1, $faker->firstName, $faker->lastName);
 
-$post = new Post(1, $name, $faker->title, $faker->text);
+$user = new User($faker->randomDigitNotNull(), $faker->firstName(), $faker->lastName());
 
-$comment = new Comment(1, $name, $post, $faker->text);
+$post = new Post($faker->randomDigitNotNull(), $user, $faker->title(), $faker->text());
+
+$comment = new Comment($faker->randomDigitNotNull(), $user, $post, $faker->text());
+
+$route = $argv[1] ?? null;
+
+switch ($argv[1]) {
+    case "user":
+        echo $user;
+        break;
+    case "post":
+        echo $post;
+        break;
+    case "comment":
+        echo $comment;
+        break;
+    default:
+        echo "error try user post comment parameter";
+}
