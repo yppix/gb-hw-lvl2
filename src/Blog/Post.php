@@ -2,26 +2,26 @@
 
 namespace GeekBrains\LevelTwo\Blog;
 
-use GeekBrains\LevelTwo\Person\User;
+use GeekBrains\LevelTwo\Blog\User;
 
 class Post
 {
-    private int    $id;
+    private UUID   $uuid;
     private User   $author;
     private string $title;
     private string $text;
 
-    public function __construct(int $id, User $author, string $title, string $text)
+    public function __construct(UUID $uuid, User $author, string $title, string $text)
     {
-        $this->id     = $id;
+        $this->uuid   = $uuid;
         $this->author = $author;
         $this->title  = $title;
         $this->text   = $text;
     }
 
-    public function getId(): ?int
+    public function getId(): UUID
     {
-        return $this->id;
+        return $this->uuid;
     }
 
     public function getAuthor(): User

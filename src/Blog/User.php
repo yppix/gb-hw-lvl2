@@ -1,15 +1,15 @@
 <?php
 
-namespace GeekBrains\LevelTwo\Person;
+namespace GeekBrains\LevelTwo\Blog;
 
 class User
 {
-    private string $uuid;
+    private UUID $uuid;
     private string $username;
     private string $firstName;
     private string $lastName;
 
-    public function __construct(string $uuid, string $username, string $firstName, string $lastName)
+    public function __construct(UUID $uuid, string $username, string $firstName, string $lastName)
     {
         $this->uuid      = $uuid;
         $this->username  = $username;
@@ -22,7 +22,7 @@ class User
         return $this->getFirstName() . ' ' . $this->getLastName();
     }
 
-    public function getUuid(): string
+    public function getId(): UUID
     {
         return $this->uuid;
     }
